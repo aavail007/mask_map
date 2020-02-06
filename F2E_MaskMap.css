@@ -1,0 +1,38 @@
+body {
+    background-color: #C8D6C9;
+}
+
+.hide {
+    display: none !important;
+}
+
+.m-t {
+    margin-top: 15px;
+}
+
+.m-t-xl {
+    margin-top: 30px;
+}
+
+.m-l {
+    margin-left: 15px;
+}
+
+.m-l-xxl {
+    margin-left: 80px;
+}
+
+.m-b {
+    margin-bottom: 15px;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+
+
+@media (max-width:768px) {
+    
+}
