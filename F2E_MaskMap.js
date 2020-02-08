@@ -150,6 +150,7 @@ function dataAppendMap() {
         )
     }
     map.addLayer(markers);
+    $('#updateTime').text(infoData[0].properties.updated);
 }
 
 function getLocation() {
