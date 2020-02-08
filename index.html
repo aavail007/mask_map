@@ -5,29 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>THE F2E-2_口罩地圖</title>
+    <title>口罩地圖</title>
 
-    <link rel="stylesheet" href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/fontawesome-free-5.9.0-web/css/all.min.css">
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
     <link rel="stylesheet" href="F2E_MaskMap.css">
 
 </head>
 
 <body>
-init
-   
+    <!-- menu -->
+    <section class="menu">
+        <div class="search_box">
+            <!-- <div class="search_bar_div">
+                <input class="search_bar" type="text" placeholder="搜尋縣市、街道、藥局名等" />
+            </div> -->
+            <div>
+                <select class="pretty_select">
+                    <option value="">台北市</option>
+                    <option value="">新北市</option>
+                </select>
+                <select class="pretty_select">
+                    <option value="">中正區</option>
+                    <option value="">中山區</option>
+                </select>
+            </div>
+            <div class="pharmacy_word">有取得口罩數量的藥局有 <span class="pharmacy_num">24</span> 家</div>
+        </div>
+        <!-- card -->
+        <div id="pharmacyDiv" class="pharmacy_div">
+            <div class="pharmacy_card">
+                <div>禾豐藥局</div>
+                <div>
+                    <span><i class="fas fa-map-marker-alt"></i></span>
+                    <span>台中市太平區ＸＸＸＸ</span>
+                </div>
+                <div>
+                    <span><i class="fas fa-phone"></i></span>
+                    <span>04-234567</span>
+                </div>
+                <!-- count -->
+                <div class="m-t-sm">
+                    <div class="type_count">成人：已售完</div>
+                    <div class="type_count sufficient">兒童：18 個</div>
+                    <div class="clear_both"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- map -->
+    <section class="map_div">
+        <div id="mapid"></div>
+    </section>
+
 </body>
 
 </html>
 
 <script src="js/jquery.js"></script>
-<script src="js/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+<!-- <script src="js/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script> -->
 <script src="js/underscore/underscore-min.js"></script>
+<script src="lib/leaflet/leaflet.js"></script>
 <script src="F2E_MaskMap.js"></script>
 
 <script>
 
 </script>
 <script type="text/html" id="cardTemplate">
-    
+
 </script>
