@@ -142,6 +142,10 @@ input:focus {
     font-size: 14px;
 }
 
+.info_card i {
+    width: 15px;
+}
+
 .type_count {
     background-color: #E2E2E2;
     width: 50%;

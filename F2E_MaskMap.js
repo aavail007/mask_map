@@ -136,7 +136,7 @@ function dataAppendMap() {
                         <span>' + address + '</span>\
                     </div>\
                     <div>\
-                        <span><i class="fas fa-phone"></i></span>\
+                        <span><i class="fas fa-phone-alt"></i></span>\
                         <span>' + phone + '</span>\
                     </div>\
                     <div class="m-t-sm">\
