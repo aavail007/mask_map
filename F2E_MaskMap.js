@@ -1,7 +1,5 @@
 $(function () {
     getLocation();
-    // initMap();
-    // getData();
 });
 
 // =========================
@@ -48,14 +46,6 @@ _.templateSettings = { //  underscore.js .Template method.
 };
 
 function initMap(location) {
-    // map = L.map('mapid', {
-    //     center: [userLatitude, userLongitude],
-    //     zoom: 16
-    // });
-    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    // }).addTo(map);
-    // markers = new L.MarkerClusterGroup().addTo(map);
     if (location) {
         userLatitude = location.coords.latitude;
         userLongitude = location.coords.longitude;
