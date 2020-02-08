@@ -33,6 +33,14 @@ var orangeIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
+var selfIcon = new L.Icon({
+    iconUrl: 'img/self_marker.svg',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+
 _.templateSettings = { //  underscore.js .Template method.
     evaluate: /\{\{(.+?)\}\}/g,
     interpolate: /\{\{=(.+?)\}\}/g,
@@ -63,6 +71,9 @@ function initMap(location) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    L.marker([userLatitude,userLongitude], {
+        icon: selfIcon
+    }).addTo(map);
     markers = new L.MarkerClusterGroup().addTo(map);
     getData();
 
@@ -75,10 +86,7 @@ function getData() {
         dataType: 'json',
         success: function (data) {
             infoData = data.features;
-            // console.log(infoData[0]);
             dataAppendMap();
-
-
         }
     });
 }
@@ -146,24 +154,11 @@ function dataAppendMap() {
 
 function getLocation() {
     if (navigator.geolocation) {
-        // navigator.geolocation.getCurrentPosition(function (location) {
-        //     showPosition(location);
-        //     showError(location);
-        //     initMap(location);
-        // });
-        // navigator.geolocation.getCurrentPosition(function (location) {
-        //     initMap(location);
-        // });
-
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     }
 }
 
 function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
-    userLatitude = position.coords.latitude;
-    userLongitude = position.coords.longitude;
-    console.log(latlon);
     initMap(position);
 }
 
