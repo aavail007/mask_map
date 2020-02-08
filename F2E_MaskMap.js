@@ -1,7 +1,7 @@
 $(function () {
     getLocation();
-    initMap();
-    getData();
+    // initMap();
+    // getData();
 });
 
 // =========================
@@ -39,7 +39,23 @@ _.templateSettings = { //  underscore.js .Template method.
     escape: /\{\{-(.+?)\}\}/g
 };
 
-function initMap() {
+function initMap(location) {
+    // map = L.map('mapid', {
+    //     center: [userLatitude, userLongitude],
+    //     zoom: 16
+    // });
+    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    // }).addTo(map);
+    // markers = new L.MarkerClusterGroup().addTo(map);
+    if (location) {
+        userLatitude = location.coords.latitude;
+        userLongitude = location.coords.longitude;
+    } else {
+        userLatitude = '25.047819';;
+        userLongitude = '121.5147601';
+    }
+
     map = L.map('mapid', {
         center: [userLatitude, userLongitude],
         zoom: 16
@@ -48,6 +64,7 @@ function initMap() {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     markers = new L.MarkerClusterGroup().addTo(map);
+    getData();
 
 }
 
@@ -58,7 +75,7 @@ function getData() {
         dataType: 'json',
         success: function (data) {
             infoData = data.features;
-            console.log(infoData[0]);
+            // console.log(infoData[0]);
             dataAppendMap();
 
 
@@ -129,32 +146,41 @@ function dataAppendMap() {
 
 function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-      console.log = "Geolocation is not supported by this browser.";
+        // navigator.geolocation.getCurrentPosition(function (location) {
+        //     showPosition(location);
+        //     showError(location);
+        //     initMap(location);
+        // });
+        // navigator.geolocation.getCurrentPosition(function (location) {
+        //     initMap(location);
+        // });
+
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
     }
-  }
-  
-  function showPosition(position) {
+}
+
+function showPosition(position) {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
     userLatitude = position.coords.latitude;
     userLongitude = position.coords.longitude;
     console.log(latlon);
-  }
-  
-  function showError(error) {
-    switch(error.code) {
-      case error.PERMISSION_DENIED:
-        console.log = "User denied the request for Geolocation."
-        break;
-      case error.POSITION_UNAVAILABLE:
-        console.log = "Location information is unavailable."
-        break;
-      case error.TIMEOUT:
-        console.log = "The request to get user location timed out."
-        break;
-      case error.UNKNOWN_ERROR:
-        console.log = "An unknown error occurred."
-        break;
+    initMap(position);
+}
+
+function showError(error) {
+    initMap();
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            console.log = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            console.log = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log = "An unknown error occurred."
+            break;
     }
-  }
+}
