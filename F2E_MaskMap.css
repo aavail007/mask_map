@@ -1,5 +1,8 @@
 body {
     background-color: #ffffff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .hide {
@@ -96,7 +99,7 @@ input:focus {
     border: #E2E2E2 solid 1px;
 }
 
-.pharmacy_word{
+.pharmacy_word {
     color: #333333;
 }
 
@@ -132,9 +135,11 @@ input:focus {
 
 .type_count:first-child {
     border-radius: 4px 0 0 4px;
+    border-right: 1px solid #fff;
+    box-sizing: border-box;
 }
 
-.type_count:last-child {
+.type_count:nth-child(2) {
     border-radius: 0 4px 4px 0;
 }
 
@@ -145,6 +150,50 @@ input:focus {
 
 .info_card {
     width: 250px;
+}
+
+.marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.6);
+}
+
+.marker-cluster-small div {
+    background-color: rgba(110, 204, 57, 0.6);
+}
+
+.marker-cluster-medium {
+    background-color: rgba(241, 211, 87, 0.6);
+}
+
+.marker-cluster-medium div {
+    background-color: rgba(240, 194, 12, 0.6);
+}
+
+.marker-cluster-large {
+    background-color: rgba(253, 156, 115, 0.6);
+}
+
+.marker-cluster-large div {
+    background-color: rgba(241, 128, 23, 0.6);
+}
+
+.marker-cluster {
+    background-clip: padding-box;
+    border-radius: 20px;
+}
+
+.marker-cluster div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.marker-cluster span {
+    line-height: 30px;
 }
 
 @media (max-width:768px) {}
